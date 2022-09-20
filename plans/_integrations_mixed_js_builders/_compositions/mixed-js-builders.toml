@@ -1,0 +1,32 @@
+# Test for https://github.com/testground/testground/issues/1386
+[metadata]
+  name = "issue-1386-mixed-js-builders"
+
+[global]
+  plan = "_integrations_mixed_js_builders"
+  case = "mixed-builders"
+  total_instances = 2
+  runner = "local:docker"
+
+[[groups]]
+  id = "go"
+  instances = { count = 1 }
+  builder = "docker:go"
+
+  [groups.build_config]
+    path = "go/"
+
+  [groups.run.test_params]
+    expected_implementation = "go"
+
+[[groups]]
+  id = "node"
+  instances = { count = 1 }
+  builder = "docker:node"
+
+  [groups.build_config]
+    path = "node/"
+
+  [groups.run.test_params]
+    expected_implementation = "node"
+  
