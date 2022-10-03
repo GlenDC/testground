@@ -1,2 +1,4 @@
 node_modules
 Dockerfile
+static/assets/testground.js
+bin/
