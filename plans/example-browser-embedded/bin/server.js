@@ -1,5 +1,5 @@
 const spawnServer = require('../server')
 
 spawnServer({
-    recordMessage: console.log
+  recordMessage: console.log
 }, null, 8080)

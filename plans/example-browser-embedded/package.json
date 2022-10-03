@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "standard",
-    "server": "node bin/server.js"
+    "server": "node bin/server.js",
+    "transpile": "npm run transpile-testground",
+    "transpile-testground": "browserify scripts/testground.js -o static/assets/testground.js"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
