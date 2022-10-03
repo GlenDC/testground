@@ -2,6 +2,7 @@ const {
   chromium,
   firefox
 } = require('playwright')
+const testground = require('@testground/sdk')
 
 const spawnServer = require('./server')
 
@@ -52,6 +53,13 @@ async function runTestFn (runenv, client, fn) {
 
     const page = await browser.newPage()
     runenv.recordMessage('playwright: new page opened')
+
+    runenv.recordMessage('playwright: injecting process env to create testground runtime in the browser')
+    page.evaluate(`
+      window.testground = {
+        processEnv: ${JSON.stringify(process.env)},
+      }
+    `)
 
     await page.goto('localhost:8080')
     runenv.recordMessage('playwright: opened local test page')
