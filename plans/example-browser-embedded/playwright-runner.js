@@ -65,7 +65,7 @@ async function runTestFn (runenv, client, fn) {
     runenv.recordMessage('playwright: opened local test page')
 
     runenv.recordMessage('playwright: evaluate user-defined test fn')
-    await page.evaluate(fn)
+    result = await page.evaluate(fn)
     runenv.recordMessage('playwright: finished evaluating user-defined test fn')
   } finally {
     if (browser) {
