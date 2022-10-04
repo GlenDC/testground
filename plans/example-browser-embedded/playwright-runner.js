@@ -55,7 +55,7 @@ async function runTestFn (runenv, client, fn) {
     runenv.recordMessage('playwright: new page opened')
 
     runenv.recordMessage('playwright: injecting process env to create testground runtime in the browser')
-    page.evaluate(`
+    await page.evaluate(`
       window.testground = {
         processEnv: ${JSON.stringify(process.env)},
       }

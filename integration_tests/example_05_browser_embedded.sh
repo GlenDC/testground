@@ -31,47 +31,47 @@ testground run single \
 
 assert_run_outcome_is ./run.out "success"
 
-# # Test Firefox with success
-# testground run single \
-#     --plan=testground/example-browser-embedded \
-#     --testcase=success \
-#     --builder=docker:generic \
-#     --use-build=testplan:example-browser-embedded \
-#     --runner=local:docker \
-#     --instances=1 \
-#     --tp browser=firefox \
-#     --collect \
-#     --wait | tee run.out
+# Test Firefox with success
+testground run single \
+    --plan=testground/example-browser-embedded \
+    --testcase=success \
+    --builder=docker:generic \
+    --use-build=testplan:example-browser-embedded \
+    --runner=local:docker \
+    --instances=1 \
+    --tp browser=firefox \
+    --collect \
+    --wait | tee run.out
 
-# assert_run_outcome_is ./run.out "success"
+assert_run_outcome_is ./run.out "success"
 
-# # Test Chromium with failure
-# testground run single \
-#     --plan=testground/example-browser-embedded \
-#     --testcase=failure \
-#     --builder=docker:generic \
-#     --use-build=testplan:example-browser-embedded \
-#     --runner=local:docker \
-#     --instances=1 \
-#     --tp browser=chromium \
-#     --collect \
-#     --wait | tee run.out
+# Test Chromium with failure
+testground run single \
+    --plan=testground/example-browser-embedded \
+    --testcase=failure \
+    --builder=docker:generic \
+    --use-build=testplan:example-browser-embedded \
+    --runner=local:docker \
+    --instances=1 \
+    --tp browser=chromium \
+    --collect \
+    --wait | tee run.out
 
-# assert_run_outcome_is ./run.out "failure"
+assert_run_outcome_is ./run.out "failure"
 
-# # Test Firefox with failure
-# testground run single \
-#     --plan=testground/example-browser-embedded \
-#     --testcase=failure \
-#     --builder=docker:generic \
-#     --use-build=testplan:example-browser-embedded \
-#     --runner=local:docker \
-#     --instances=1 \
-#     --tp browser=firefox \
-#     --collect \
-#     --wait | tee run.out
+# Test Firefox with failure
+testground run single \
+    --plan=testground/example-browser-embedded \
+    --testcase=failure \
+    --builder=docker:generic \
+    --use-build=testplan:example-browser-embedded \
+    --runner=local:docker \
+    --instances=1 \
+    --tp browser=firefox \
+    --collect \
+    --wait | tee run.out
 
-# assert_run_outcome_is ./run.out "failure"
+assert_run_outcome_is ./run.out "failure"
 
 popd
 
