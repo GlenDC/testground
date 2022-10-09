@@ -1,4 +1,6 @@
-const { runtime, sync, network } = require('@testground/sdk')
+window.testground = require('@testground/sdk')
+
+// TODO: delete
 
 ;(async () => {
   if (!window.testground) {
